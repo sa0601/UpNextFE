@@ -1,13 +1,192 @@
-body {
+/* Fonts */
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
+
+body, html {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: white; /* Dark background */
+  color: black; /* Light text */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* General container for cards, if you have a wrapper for the posts */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Creates a 3-column layout */
+  gap: 20px; /* Space between cards */
+  padding: 20px; /* Padding around the entire grid */
+}
+
+.card {
+  background-color: white;
+  border-radius: 20px;
+  border: 3px solid black;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  text-align: center;
+  /* Ensure the content doesn't exceed the card size */
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Image container and image style to match the Post component */
+.card-image-container img {
+  width: 100%;
+  display: block;
+  border-bottom: 4px solid #e50914; /* Netflix red */
+}
+
+/* Card content styles */
+.card-content {
+  padding: 15px;
+}
+
+.card-title {
+  font-size: 3rem;
+  margin: 0;
+  color: black;
+}
+
+.card-date {
+  font-size: 0.9rem;
+  color: black;
+}
+
+.card-priority, .card-tag {
+  color: black;
+  font-size: 2rem;
+  /* If you need to style priority and tag, add your styles here */
+}
+
+/* Navigation bar, if you have one */
+.navbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background-color: #141414;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  height: 60px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.nav-logo {
+  height: 30px; /* Your logo height */
+}
+
+/* Footer styles */
+.footer {
+  background-color: #181818;
+  padding: 20px;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+
+/* Styling for form container */
+.form-container {
+  max-width: 400px; /* Fixed width */
+  background: #fff; /* White background */
+  padding: 2rem;
+  margin: 50px auto; /* Center the form */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* General field styling */
+.form-field {
+  display: block; /* Each field takes full width */
+  width: 100%;
+  padding: 10px; /* Spacing inside the fields */
+  margin-bottom: 1rem; /* Spacing between fields */
+  border-radius: 4px; /* Slightly rounded borders for the input fields */
+  border: 1px solid #ddd; /* Subtle border color */
+  font-size: 1rem; /* Slightly larger font size */
+}
+
+/* Placeholder styling */
+.form-field::placeholder {
+  color: #999;
+}
+
+/* Hover and Focus states for interactivity */
+.form-field:hover, .form-field:focus {
+  border-color: #bbb; /* Darker border on hover/focus */
+  outline: none; /* Removes the default focus outline */
+  box-shadow: 0 0 0 2px #eee; /* Adds a subtle 'glow' effect on focus */
+}
+
+/* Styling for submit button */
+.submit-btn {
+  width: 100%;
+  padding: 10px;
+  border: none; /* Removes default border */
+  background-color: red; /* Green background */
+  color: white; /* Text color */
+  border-radius: 4px; /* Rounded borders */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 1rem;
+}
+
+/* Hover and Focus states for button for interactivity */
+.submit-btn:hover, .submit-btn:focus {
+  background-color: #4cae4c; /* Slightly darker green on hover/focus */
+  outline: none;
+}
+
+/* Add some animation to the button */
+.submit-btn:active {
+  transform: scale(0.98); /* Slightly scale down button when pressed */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 1024px) {
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .cards-container {
+    grid-template-columns: 1fr; /* 1 column for mobile screens */
+  }
+}
+
+
+.Update-bttn {
+  background-color: rgb(220, 42, 42);
+}
+
+/*HEADER*/
+
+.app-header {
+  background-color: #282c34;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: #61dafb;
+  border-radius: 4px;
 }
